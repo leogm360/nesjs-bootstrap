@@ -4,16 +4,16 @@ import { PrismaModule } from '@modules';
 import { configs, configsSchema } from '@configs';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      cache: true,
-      load: [configs],
-      validationSchema: configsSchema,
-    }),
-    PrismaModule,
-  ],
-  controllers: [],
-  providers: [],
+    imports: [
+        ConfigModule.forRoot({
+            isGlobal: true,
+            cache: true,
+            load: [configs],
+            validationSchema: configsSchema,
+        }),
+        PrismaModule,
+    ],
+    controllers: [],
+    providers: [],
 })
 export class AppModule {}
