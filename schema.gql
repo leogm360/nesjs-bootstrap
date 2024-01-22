@@ -1,0 +1,133 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Represents the user model type."""
+type User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  passwordHash: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  findManyUsers(where: UserWhereInput, cursor: UserWhereUniqueInput, distinct: UserScalarFieldEnum, orderBy: UserOrderByWithRelationInput, skip: Int, take: Int): [User!]!
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  id: StringFilter
+  email: StringFilter
+  firstName: StringFilter
+  lastName: StringFilter
+  passwordHash: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: DateTime
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: DateTime
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: DateTime
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: DateTime
+}
+
+input UserWhereUniqueInput {
+  id: String
+  email: String
+  user_first_name_last_name_unique: UserFirstNameLastNameUniqueInput
+}
+
+input UserFirstNameLastNameUniqueInput {
+  firstName: String
+  lastName: String
+}
+
+enum UserScalarFieldEnum {
+  id
+  email
+  firstName
+  lastName
+  passwordHash
+  createdAt
+  updatedAt
+}
+
+input UserOrderByWithRelationInput {
+  name: SortEnum
+  email: SortEnum
+  createdAt: SortEnum
+  updatedAt: SortEnum
+}
+
+enum SortEnum {
+  asc
+  desc
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): User!
+}
+
+input CreateUserInput {
+  id: String
+  email: String!
+  firstName: String!
+  lastName: String!
+  passwordHash: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
