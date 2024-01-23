@@ -7,6 +7,8 @@ import { NestJsConfig, NodeEnv } from '@types';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors({ origin: '*' });
+
   const logger = new Logger('bootstrap');
   const configService = app.get<ConfigService<NestJsConfig, true>>(
     ConfigService<NestJsConfig, true>,
